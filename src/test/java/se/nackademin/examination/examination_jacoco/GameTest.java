@@ -11,6 +11,13 @@ public class GameTest {
 	Game game = new Game();
 	
 	@Test
+	public void testRun() {
+		ArrayList<String> arrayOfInputs = new ArrayList<String>();
+		arrayOfInputs.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Stockholm"));
+		game.run(arrayOfInputs);
+	}
+	
+	@Test
 	public void testGetGenderFromInputValues() {
 		ArrayList<String> arrayOfInputs = new ArrayList<String>();
 		arrayOfInputs.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Stockholm"));
@@ -26,9 +33,7 @@ public class GameTest {
 	
 	@Test
 	public void testRunGame() {
-		ArrayList<String> arrayOfInputs = new ArrayList<String>();
-		arrayOfInputs.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Stockholm"));
-		assertEquals(game.getAgeFromInputValues(arrayOfInputs), 28);
+		game.runGame("Game", "Anna", "Niemelä", 'F', 28, "Stockholm");
 	}
 
 	@Test
@@ -88,7 +93,5 @@ public class GameTest {
 		assertEquals("The result should be 9", j, 9);
 		int k = game.calculateOutPutBasedOnHomeCity("k");
 		assertEquals("The result should be 10", k, 10);
-
 	}
-
 }
