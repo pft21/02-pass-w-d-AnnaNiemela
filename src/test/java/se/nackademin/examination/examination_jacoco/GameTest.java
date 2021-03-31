@@ -11,7 +11,7 @@ public class GameTest {
 	Game game = new Game();
 	
 	@Test
-	public void testRun() {
+	public void testRun() { // shouldn't there be an assert method?
 		ArrayList<String> arrayOfInputs = new ArrayList<String>();
 		arrayOfInputs.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Stockholm"));
 		game.run(arrayOfInputs);
@@ -21,17 +21,17 @@ public class GameTest {
 	public void testGetGenderFromInputValues() {
 		ArrayList<String> arrayOfInputs = new ArrayList<String>();
 		arrayOfInputs.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Stockholm"));
-		assertEquals(game.getGenderFromInputValues(arrayOfInputs), 'F');
+		assertEquals("The result should be F", game.getGenderFromInputValues(arrayOfInputs), 'F');
 	}
 	
 	@Test
 	public void testGetAgeFromInputValues() {
 		ArrayList<String> arrayOfInputs = new ArrayList<String>();
 		arrayOfInputs.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Stockholm"));
-		assertEquals(game.getAgeFromInputValues(arrayOfInputs), 28);
+		assertEquals("The result should be 28", game.getAgeFromInputValues(arrayOfInputs), 28);
 	}
 	
-	@Test
+	@Test // shouldn't there be an assert method?
 	public void testRunGame() {
 		game.runGame("Game", "Anna", "Niemelä", 'F', 28, "Stockholm");
 	}

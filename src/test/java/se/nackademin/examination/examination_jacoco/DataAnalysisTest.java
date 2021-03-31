@@ -23,35 +23,46 @@ public class DataAnalysisTest {
 	@Test
 	public void testGetResultStringNamesAndAge() {
 		values.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Stockholm"));
-		assertTrue(dataAnalysis.getResultStringNamesAndAge(values).contains
-				("The first name is smaller or equals in size to the last name and the participant is 30 or younger"));
+		String result = dataAnalysis.getResultStringNamesAndAge(values);
+		assertTrue("The result should contain 'The first name is smaller or equals in size to the last name and the participant is 30 or younger' ",
+				result.contains("The first name is smaller or equals in size to the last name and the participant is 30 or younger"));
 		
 		values.clear();
 		values.addAll(Arrays.asList("Game", "Rafael", "Silva", "M", "31", "Fortaleza"));
-		assertTrue(dataAnalysis.getResultStringNamesAndAge(values).contains
-				("The first name is greater or equals in size to the last name and the participant older than 30"));     
+		result = dataAnalysis.getResultStringNamesAndAge(values);
+		assertTrue("The result should contain 'The first name is greater or equals in size to the last name and the participant older than 30' ",
+				result.contains("The first name is greater or equals in size to the last name and the participant older than 30"));     
+		
+		values.clear();
+		values.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "31", "Stockholm"));
+		result = dataAnalysis.getResultStringNamesAndAge(values);
+		assertTrue("The result should contain 'No analysis was performed' ", result.contains("No analysis was performed"));     
 	}
 	
 	@Test
 	public void testGetResultStringHomecityAndAge() {
 		values.addAll(Arrays.asList("Game", "Rafael", "Silva", "M", "31", "Fortaleza"));
-		assertTrue(dataAnalysis.getResulStringHomecityAndAge(values).contains
-				("The name of the homecity is big and the participant is 30 or older"));
-		
+		String result = dataAnalysis.getResulStringHomecityAndAge(values);
+		assertTrue("The result should contain 'The name of the homecity is big and the participant is 30 or older' ", 
+				result.contains("The name of the homecity is big and the participant is 30 or older"));
+
 		values.clear();
 		values.addAll(Arrays.asList("Game", "Rafael", "Silva", "M", "29", "Fortaleza"));
-		assertTrue(dataAnalysis.getResulStringHomecityAndAge(values).contains
-				("The name of the homecity is big and the participant is younger than 30"));
+		result = dataAnalysis.getResulStringHomecityAndAge(values);
+		assertTrue("The result should contain 'The name of the homecity is big and the participant is younger than 30' ", 
+				result.contains("The name of the homecity is big and the participant is younger than 30"));
 		
 		values.clear();
 		values.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Flen"));
-		assertTrue(dataAnalysis.getResulStringHomecityAndAge(values).contains
-				("The name of the homecity is small and the participant is younger than 30"));
+		result = dataAnalysis.getResulStringHomecityAndAge(values);
+		assertTrue("The result should contain 'The name of the homecity is small and the participant is younger than 30' ", 
+				result.contains("The name of the homecity is small and the participant is younger than 30"));
 		
 		values.clear();
 		values.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "31", "Flen"));
-		assertTrue(dataAnalysis.getResulStringHomecityAndAge(values).contains
-				("The name of the homecity is small and the participant is 30 or older"));
+		result = dataAnalysis.getResulStringHomecityAndAge(values);
+		assertTrue("The result should contain 'The name of the homecity is small and the participant is 30 or older' ", 
+				result.contains("The name of the homecity is small and the participant is 30 or older"));
 	}
 
 }
