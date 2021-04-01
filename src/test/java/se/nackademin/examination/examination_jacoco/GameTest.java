@@ -11,10 +11,10 @@ public class GameTest {
 	Game game = new Game();
 	
 	@Test
-	public void testRun() { // shouldn't there be an assert method?
-		ArrayList<String> arrayOfInputs = new ArrayList<String>();
-		arrayOfInputs.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Stockholm"));
-		game.run(arrayOfInputs);
+	public void testRun() { 
+		ArrayList<String> values = new ArrayList<String>();
+		values.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Stockholm"));
+		game.run(values);
 	}
 	
 	@Test
@@ -29,11 +29,6 @@ public class GameTest {
 		ArrayList<String> arrayOfInputs = new ArrayList<String>();
 		arrayOfInputs.addAll(Arrays.asList("Game", "Anna", "Niemelä", "F", "28", "Stockholm"));
 		assertEquals("The result should be 28", game.getAgeFromInputValues(arrayOfInputs), 28);
-	}
-	
-	@Test // shouldn't there be an assert method?
-	public void testRunGame() {
-		game.runGame("Game", "Anna", "Niemelä", 'F', 28, "Stockholm");
 	}
 
 	@Test
